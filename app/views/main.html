@@ -24,6 +24,7 @@
   </small>
 
   <h2  ng-if="x.title">{{x.title}}</h2>
+  <div class="yt-player" ng-if="x.youtube" my-youtube code="x.youtube"></div>
   <p   class="post" ng-if="x.text">
   	<span ng-bind-html="x.text | markdown"></span>
   </p>
