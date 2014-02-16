@@ -160,10 +160,24 @@ module.exports = function (grunt) {
 			dist: {
 				files: [{
 					dot: true,
+					// enumerate all files by hand to exclude .git
+					// todo: find a way to add exclusions
 					src: [
 						'.tmp',
-						'<%= yeoman.dist %>/*',
-						'!<%= yeoman.dist %>/.git*'
+						'<%= yeoman.dist %>/.buildignore',
+						'<%= yeoman.dist %>/.htaccess',
+						'<%= yeoman.dist %>/404.html',
+						'<%= yeoman.dist %>/amd-modules.js',
+						'<%= yeoman.dist %>/bower_components',
+						'<%= yeoman.dist %>/build.txt',
+						'<%= yeoman.dist %>/favicon.ico',
+						'<%= yeoman.dist %>/fonts',
+						'<%= yeoman.dist %>/images',
+						'<%= yeoman.dist %>/index.html',
+						'<%= yeoman.dist %>/robots.txt',
+						'<%= yeoman.dist %>/scripts',
+						'<%= yeoman.dist %>/styles',
+						'<%= yeoman.dist %>/views',
 					]
 				}]
 			},
@@ -394,7 +408,8 @@ module.exports = function (grunt) {
 					],
 					optimize: 'none',
 					optimizeCss: 'none',
-					skipDirOptimize: true
+					skipDirOptimize: true,
+					keepBuildDir: true
 				}
 			}
 		}
@@ -434,6 +449,7 @@ module.exports = function (grunt) {
 
 	// TODO: move features from old build here
 	grunt.registerTask('build', [
+		'clean:dist',
 		'requirejs'
 	]);
 
