@@ -1,4 +1,0 @@
-[submodule "deploy"]
-	path = deploy
-	url = git@github.com:twigil/text-board.git
-	branch = gh-pages
